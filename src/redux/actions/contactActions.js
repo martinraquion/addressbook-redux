@@ -11,3 +11,10 @@ export const selectContact = (selected) => {
     payload: selected,
   };
 };
+
+export const deleteContact = (contact) => {
+  return {
+    type: `DELETE_CONTACT`,
+    payload: contact,
+  };
+};

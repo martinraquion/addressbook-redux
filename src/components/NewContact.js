@@ -3,20 +3,24 @@ import { addContact } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 function NewContact() {
-  const [newContact, setNewContact] = useState({ name: "", number: "" });
+  const [newContact, setNewContact] = useState({
+    name: "",
+    number: "",
+    id: "",
+  });
   const dispatch = useDispatch();
   const handleNewContact = (e) => {
     setNewContact({
       ...newContact,
-      id: uuidv4(),
       [e.target.name]: e.target.value,
+      id: uuidv4(),
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addContact(newContact));
-    setNewContact({ name: "", number: "" });
+    setNewContact({ name: "", number: "", id: "" });
   };
 
   console.log(newContact);
