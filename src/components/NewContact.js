@@ -8,8 +8,8 @@ function NewContact() {
   const handleNewContact = (e) => {
     setNewContact({
       ...newContact,
-      [e.target.name]: e.target.value,
       id: uuidv4(),
+      [e.target.name]: e.target.value,
     });
   };
 

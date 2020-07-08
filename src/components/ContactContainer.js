@@ -1,8 +1,10 @@
 import React from "react";
 import NewContact from "./NewContact";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { selectContact } from "../redux/actions";
 function ContactContainer() {
-  const contacts = useSelector((state) => state.contact);
+  const contacts = useSelector((state) => state.contact.user);
+  const dispatch = useDispatch();
   return (
     <div style={{ border: "1px solid black", padding: 10, width: 350 }}>
       <h2>CONTACT LIST</h2>
@@ -16,8 +18,10 @@ function ContactContainer() {
             flexDirection: "column",
             alignItems: "flex-start",
             marginBottom: 4,
+            cursor: "pointer",
           }}
           key={contact.id}
+          onClick={() => dispatch(selectContact(contact))}
         >
           <span>Name: {contact.name}</span>
           <span>#: {contact.number} </span>

@@ -4,3 +4,10 @@ export const addContact = (newContact) => {
     payload: newContact,
   };
 };
+
+export const selectContact = (selected) => {
+  return {
+    type: `SELECT_CONTACT`,
+    payload: selected,
+  };
+};
