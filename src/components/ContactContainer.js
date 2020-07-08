@@ -1,7 +1,6 @@
 import React from "react";
-import { v1 as uuidv1 } from "uuid";
 import NewContact from "./NewContact";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 function ContactContainer() {
   const contacts = useSelector((state) => state.contact);
   return (
@@ -21,7 +20,7 @@ function ContactContainer() {
           key={contact.id}
         >
           <span>Name: {contact.name}</span>
-          <span>#: {contact.id} </span>
+          <span>#: {contact.number} </span>
         </div>
       ))}
     </div>
